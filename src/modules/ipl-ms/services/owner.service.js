@@ -1,4 +1,4 @@
-import Owner from "../models/owner.model.js";
+import Owner from '../models/owner.model.js';
 
 export async function createOwner(data) {
   const owner = await Owner.create(data);
@@ -12,18 +12,20 @@ export async function getAllOwners() {
 
 export async function getOwnerById(id) {
   const owner = await Owner.findById(id);
-  if (!owner) throw new Error("Owner not found");
+  if (!owner) throw new Error('Owner not found');
   return owner;
 }
 
 export async function updateOwner(id, data) {
-  const owner = await Owner.findByIdAndUpdate(id, data, { new: true });
-  if (!owner) throw new Error("Owner not found");
+  const owner = await Owner.findByIdAndUpdate(id, data, {
+    returnDocument: 'after',
+  });
+  if (!owner) throw new Error('Owner not found');
   return owner;
 }
 
 export async function deleteOwner(id) {
   const owner = await Owner.findByIdAndDelete(id);
-  if (!owner) throw new Error("Owner not found");
+  if (!owner) throw new Error('Owner not found');
   return owner;
 }
