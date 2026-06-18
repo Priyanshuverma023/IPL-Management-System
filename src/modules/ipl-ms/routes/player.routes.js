@@ -5,7 +5,7 @@ import {
   handleGetPlayerById,
   handleUpdatePlayer,
   handleDeletePlayer,
-} from "../controllers/player.controller.js ";
+} from "../controllers/player.controller.js";
 
 const router = express.Router();
 
