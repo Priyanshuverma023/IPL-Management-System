@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import ownerRouter from "./modules/ipl-ms/routes/owner.routes.js";
 import teamRouter from "./modules/ipl-ms/routes/team.routes.js";
 import playerRouter from "./modules/ipl-ms/routes/player.routes.js";
+import sponsorRouter from "./modules/ipl-ms/routes/sponsor.routes.js";
 
 const app = express();
 
@@ -18,4 +19,5 @@ app.get("/", (req, res) => {
 app.use("/api/owners", ownerRouter);
 app.use("/api/teams", teamRouter);
 app.use("/api/players", playerRouter);
+app.use("/api/sponsors", sponsorRouter);
 export default app;
