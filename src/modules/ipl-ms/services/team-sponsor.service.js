@@ -1,31 +1,31 @@
-import Sponsor from '../models/sponsor.model.js';
+import TeamSponsor from '../models/team-TeamSponsor.model.js';
 
-export async function createSponsor(data) {
-  const sponsor = await Sponsor.create(data);
-  return sponsor;
+export async function createTeamTeamSponsor(data) {
+  const TeamSponsor = await TeamSponsor.create(data);
+  return TeamSponsor;
 }
 
-export async function getAllSponsors() {
-  const sponsors = await Sponsor.find();
-  return Sponsors;
+export async function getAllTeamSponsors() {
+  const TeamSponsors = await TeamSponsor.find();
+  return TeamSponsors;
 }
 
-export async function getSponsorById(id) {
-  const sponsor = await sponsor.findById(id);
-  if (!sponsor) throw new Error('sponsor not found');
-  return sponsor;
+export async function getTeamSponsorById(id) {
+  const TeamSponsor = await TeamSponsor.findById(id);
+  if (!TeamSponsor) throw new Error('TeamSponsor not found');
+  return TeamSponsor;
 }
 
-export async function updateSponsor(id, data) {
-  const sponsor = await sponsor.findByIdAndUpdate(id, data, {
+export async function updateTeamSponsor(id, data) {
+  const TeamSponsor = await TeamSponsor.findByIdAndUpdate(id, data, {
     returnDocument: 'after',
   });
-  if (!sponsor) throw new Error('sponsor not found');
-  return sponsor;
+  if (!TeamSponsor) throw new Error('TeamSponsor not found');
+  return TeamSponsor;
 }
 
-export async function deleteSponsor(id) {
-  const sponsor = await sponsor.findByIdAndDelete(id);
-  if (!sponsor) throw new Error('sponsor not found');
-  return sponsor;
+export async function deleteTeamSponsor(id) {
+  const TeamSponsor = await TeamSponsor.findByIdAndDelete(id);
+  if (!TeamSponsor) throw new Error('TeamSponsor not found');
+  return TeamSponsor;
 }
