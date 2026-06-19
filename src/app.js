@@ -7,7 +7,7 @@ import sponsorRouter from "./modules/ipl-ms/routes/sponsor.routes.js";
 import broadcasterRouter from "./modules/ipl-ms/routes/broadcaster.routes.js";
 import matchesRouter from "./modules/ipl-ms/routes/match.routes.js";
 import teamSponsorRouter from "./modules/ipl-ms/routes/team-sponsor.routes.js";
-
+import teamBroadcasterRouter from "./modules/ipl-ms/routes/team-broadcaster.routes.js";
 const app = express();
 
 app.use(express.json());
@@ -25,5 +25,6 @@ app.use("/api/players", playerRouter);
 app.use("/api/sponsors", sponsorRouter);
 app.use("/api/broadcasters", broadcasterRouter);
 app.use("/api/matchs", matchesRouter);
-app.use("/api/team-sponsors", teamSponsorRoter);
+app.use("/api/team-sponsors", teamSponsorRouter);
+app.use("/api/team-Broadcaster", teamBroadcasterRouter);
 export default app;

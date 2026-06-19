@@ -1,31 +1,37 @@
-import TeamSponsor from '../models/team-TeamSponsor.model.js';
+import TeamSponsor from "../models/team-sponsor.model.js";
 
-export async function createTeamTeamSponsor(data) {
-  const TeamSponsor = await TeamSponsor.create(data);
-  return TeamSponsor;
+export async function createTeamSponsor(data) {
+  const teamSponsor = await TeamSponsor.create(data);
+  return teamSponsor;
 }
 
 export async function getAllTeamSponsors() {
-  const TeamSponsors = await TeamSponsor.find();
-  return TeamSponsors;
+  const teamSponsors = await TeamSponsor.find()
+    .populate("team")
+    .populate("sponsor");
+  return teamSponsors;
 }
 
 export async function getTeamSponsorById(id) {
-  const TeamSponsor = await TeamSponsor.findById(id);
-  if (!TeamSponsor) throw new Error('TeamSponsor not found');
-  return TeamSponsor;
+  const teamSponsor = await TeamSponsor.findById(id)
+    .populate("team")
+    .populate("sponsor");
+  if (!teamSponsor) throw new Error("TeamSponsor not found");
+  return teamSponsor;
 }
 
 export async function updateTeamSponsor(id, data) {
-  const TeamSponsor = await TeamSponsor.findByIdAndUpdate(id, data, {
-    returnDocument: 'after',
-  });
-  if (!TeamSponsor) throw new Error('TeamSponsor not found');
-  return TeamSponsor;
+  const teamSponsor = await TeamSponsor.findByIdAndUpdate(id, data, {
+    new: true,
+  })
+    .populate("team")
+    .populate("sponsor");
+  if (!teamSponsor) throw new Error("TeamSponsor not found");
+  return teamSponsor;
 }
 
 export async function deleteTeamSponsor(id) {
-  const TeamSponsor = await TeamSponsor.findByIdAndDelete(id);
-  if (!TeamSponsor) throw new Error('TeamSponsor not found');
-  return TeamSponsor;
+  const teamSponsor = await TeamSponsor.findByIdAndDelete(id);
+  if (!teamSponsor) throw new Error("TeamSponsor not found");
+  return teamSponsor;
 }
