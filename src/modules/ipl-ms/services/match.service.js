@@ -7,7 +7,7 @@ export async function createMatch(data) {
 
 export async function getAllMatchs() {
   const matchs = await Match.find()
-    .populate("temaA")
+    .populate("teamA")
     .populate("teamB")
     .populate("winner");
   return matchs;
@@ -26,7 +26,7 @@ export async function updateMatch(id, data) {
   const match = await Match.findByIdAndUpdate(id, data, {
     returnDocument: "after",
   })
-    .populate("teamjA")
+    .populate("teamA")
     .populate("teamB")
     .populate("winner");
   if (!match) throw new Error("match not found");
