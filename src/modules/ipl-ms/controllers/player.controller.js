@@ -25,7 +25,7 @@ export async function handleGetAllPlayer(req, res) {
     const players = await getAllPlayer();
     res
       .status(200)
-      .json(new ApiResponse(200, player, "Players fetched successfully!"));
+      .json(new ApiResponse(200, players, "Players fetched successfully!"));
   } catch (err) {
     res.status(500).json(new ApiError(500, err.message));
   }
@@ -58,6 +58,6 @@ export async function handleDeletePlayer(req, res) {
       .status(200)
       .json(new ApiResponse(200, player, "Player deleted successfully!"));
   } catch (err) {
-    res.status(500).json(ApiError(500, err.message));
+    res.status(500).json(new ApiError(500, err.message));
   }
 }

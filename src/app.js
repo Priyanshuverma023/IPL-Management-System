@@ -26,5 +26,5 @@ app.use("/api/sponsors", sponsorRouter);
 app.use("/api/broadcasters", broadcasterRouter);
 app.use("/api/matchs", matchesRouter);
 app.use("/api/team-sponsors", teamSponsorRouter);
-app.use("/api/team-Broadcaster", teamBroadcasterRouter);
+app.use("/api/team-broadcasters", teamBroadcasterRouter);
 export default app;
